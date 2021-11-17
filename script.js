@@ -7,11 +7,12 @@ var numbers = "01223456789";
 var numbersArray =numbers.split("");
 var lowercase = "abcdefghijklmnopqrstuvwxyz";
 var lowercaseArray =lowercase.split("");
-var uppercase = lowercase.toUpperCase();
+var uppercase = lowercase.toUpperCase("");
 var uppercaseArray = uppercase.split("");
 var specChar = "~`!@#$%^&*()_-+={[}]|:;\\'<,>.\",?/";
 var specCharArray = specChar.split("");
-var passwordArray = []
+var passwordArray = [];
+
 
 
 
@@ -56,11 +57,14 @@ function generatePassword() {
     }
   }
 
+  let password = "";
+
 // For Loop
   
   for (var i = 0; i < passwordLength; i++) {
-    password += passwordArray[i]
+    password += passwordArray[Math.floor(Math.random() * passwordArray.length)]
   }
+
 
   return password;
 
