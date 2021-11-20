@@ -1,24 +1,22 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Variables
-
-var numbers = "01223456789";
-var numbersArray =numbers.split("");
-var lowercase = "abcdefghijklmnopqrstuvwxyz";
-var lowercaseArray =lowercase.split("");
-var uppercase = lowercase.toUpperCase("");
-var uppercaseArray = uppercase.split("");
-var specChar = "~`!@#$%^&*()_-+={[}]|:;\\'<,>.\",?/";
-var specCharArray = specChar.split("");
-var passwordArray = [];
-
-
-
-
 // Password Generator Function
 
 function generatePassword() {
+
+// Variables
+
+  var numbersArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+  var lowercaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  var uppercaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+  var specCharArray = ["~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "[", "}", "]", "|", ":", ";", "<", ",", ">", ".", "?"];
+  var passwordArray = [];
+  
+  console.log(numbersArray);
+  console.log(lowercaseArray);
+  console.log(uppercaseArray);
+  console.log(specCharArray);
 
 // Password Length
   var passwordLength = prompt("Password Length (Must choose number between 8-128)");
@@ -39,32 +37,35 @@ function generatePassword() {
   var lowercaseOption = confirm("Do you want lowercase letters in the password?");
 
     if (lowercaseOption === true ) {
-      passwordArray.concat(lowercaseArray)
+      lowercaseArray.concat(passwordArray);
     }
 
 // Uppercase Letter Option
   var uppercaseOption = confirm("Do you want uppercase letters in the password?");
 
     if (uppercaseOption === true ) {
-      passwordArray.concat(uppercaseArray)
+      uppercaseArray.concat(passwordArray);
     }
 
 // Special Character Option        
   var specialCharactersOption = confirm("Do you want special characters in the password?");
 
     if (specialCharactersOption === true ) {
-      passwordArray.concat(specCharArray)
+      specCharArray.concat(passwordArray);
     }
   }
 
-  let password = "";
+  console.log(passwordArray);
+
+  var password = "";
 
 // For Loop
   
   for (var i = 0; i < passwordLength; i++) {
-    password += passwordArray[Math.floor(Math.random() * passwordArray.length)]
-  }
+  
+    password += passwordArray[Math.floor(Math.random() * passwordArray.length)];
 
+  }
 
   return password;
 
